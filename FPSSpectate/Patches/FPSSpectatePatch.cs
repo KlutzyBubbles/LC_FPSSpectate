@@ -8,9 +8,9 @@ namespace FPSSpectate.Patches
     [HarmonyPatch(typeof(PlayerControllerB))]
     internal class FPSSpectatePatch
     {
-        public static float SPECTATE_OFFSET = 1.5f;
+        public const float SPECTATE_OFFSET = 1.5f;
         public static bool debounced = false;
-        public static bool firstPerson = true;
+        public static bool firstPerson = FPSSpectate.defaultViewConfig.Value;
         [HarmonyPatch("LateUpdate")]
         [HarmonyPostfix]
         private static void LateUpdate(PlayerControllerB __instance)

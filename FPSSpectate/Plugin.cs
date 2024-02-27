@@ -18,6 +18,7 @@ namespace FPSSpectate
 
         public static FPSSpectate Instance;
         public static ConfigEntry<Key> fpsKeyBind;
+        public static ConfigEntry<bool> defaultViewConfig;
 
         public static ManualLogSource mls;
 
@@ -29,10 +30,6 @@ namespace FPSSpectate
             }
             ConfigEntry<Key> fpsKeyBind = Config.Bind("Settings", "Keybind", Key.V, "Which key to press to switch between third and first person.");
             ConfigEntry<bool> defaultViewConfig = Config.Bind("Settings", "Default to first person", true, "Whether or not to default to first person when spectating");
-            ConfigEntry<float> spectateOffset = Config.Bind("Settings", "Spectate Offset", 1.5f, "Offset of the camera for spectate");
-            FPSSpectatePatch.firstPerson = defaultViewConfig.Value; 
-            FPSSpectatePatch.SPECTATE_OFFSET = spectateOffset.Value; 
-
             mls = BepInEx.Logging.Logger.CreateLogSource(modGUID);
             harmony.PatchAll();
         }
