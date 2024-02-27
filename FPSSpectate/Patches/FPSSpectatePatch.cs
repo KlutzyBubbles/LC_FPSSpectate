@@ -2,30 +2,29 @@
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FPSSpectate;
+using UnityEngine.UIElements;
 
 namespace FPSSpectate.Patches
 {
     [HarmonyPatch(typeof(PlayerControllerB))]
     internal class FPSSpectatePatch
     {
-
-        private const float SPECTATE_OFFSET = 1.5f;
-        private static bool debounced = false;
-
+        public static float SPECTATE_OFFSET = 1.5f;
+        public static bool debounced = false;
         public static bool firstPerson = true;
-
         [HarmonyPatch("LateUpdate")]
         [HarmonyPostfix]
         private static void LateUpdate(PlayerControllerB __instance)
         {
-
-            if (Keyboard.current.vKey.wasPressedThisFrame && !debounced)
+            var Key = FPSSpectate.fpsKeyBind.Value;
+            if (Keyboard.current[Key].wasPressedThisFrame && !debounced)
             {
                 firstPerson = !firstPerson;
                 debounced = true;
             }
 
-            if(Keyboard.current.vKey.wasReleasedThisFrame)
+            if (Keyboard.current[Key].wasReleasedThisFrame)
             {
                 debounced = false;
             }
