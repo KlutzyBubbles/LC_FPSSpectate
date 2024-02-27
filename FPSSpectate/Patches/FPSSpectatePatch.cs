@@ -2,8 +2,6 @@
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using FPSSpectate;
-using UnityEngine.UIElements;
 
 namespace FPSSpectate.Patches
 {

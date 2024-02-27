@@ -3,12 +3,7 @@ using BepInEx.Logging;
 using BepInEx.Configuration;
 using HarmonyLib;
 using UnityEngine.InputSystem;
-using GameNetcodeStuff;
-using UnityEngine;
 using FPSSpectate.Patches;
-using UnityEngine.InputSystem;
-using System.Collections.Generic;
-using System;
 
 namespace FPSSpectate
 {
@@ -17,7 +12,7 @@ namespace FPSSpectate
     {
         public const string modGUID = "5Bit.FPSSpectate";
         public const string modName = "FPSSpectate";
-        public const string modVersion = "1.0.1";
+        public const string modVersion = "1.0.2";
 
         public readonly Harmony harmony = new Harmony(modGUID);
 
