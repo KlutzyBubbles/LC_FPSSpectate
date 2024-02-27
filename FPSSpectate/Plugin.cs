@@ -17,8 +17,8 @@ namespace FPSSpectate
         public readonly Harmony harmony = new Harmony(modGUID);
 
         public static FPSSpectate Instance;
-        public static ConfigEntry<Key> fpsKeyBind;
-        public static ConfigEntry<bool> defaultViewConfig;
+        public static ConfigEntry<Key> fpsKeyBind {  get; set; }
+        public static ConfigEntry<bool> defaultViewConfig { get; set; }
 
         public static ManualLogSource mls;
 
@@ -28,8 +28,8 @@ namespace FPSSpectate
             {
                 Instance = this;
             }
-            ConfigEntry<Key> fpsKeyBind = Config.Bind("Settings", "Keybind", Key.V, "Which key to press to switch between third and first person.");
-            ConfigEntry<bool> defaultViewConfig = Config.Bind("Settings", "Default to first person", true, "Whether or not to default to first person when spectating");
+            fpsKeyBind = Config.Bind("Settings", "Keybind", Key.V, "Which key to press to switch between third and first person.");
+            defaultViewConfig = Config.Bind("Settings", "Default to first person", true, "Whether or not to default to first person when spectating");
             mls = BepInEx.Logging.Logger.CreateLogSource(modGUID);
             harmony.PatchAll();
         }
