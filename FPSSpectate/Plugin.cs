@@ -18,8 +18,6 @@ namespace FPSSpectate
 
         public static FPSSpectate Instance;
         public static ConfigEntry<Key> fpsKeyBind;
-        public static ConfigEntry<bool> defaultViewConfig;
-        public static ConfigEntry<float> SPECTATE_OFFSET;
 
         public static ManualLogSource mls;
 
