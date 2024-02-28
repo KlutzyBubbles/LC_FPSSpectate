@@ -1,6 +1,8 @@
 # FPSSpectate
-BepInEx 5 Plugin for Lethal Company.
-Changes the spectator camera to first person.
+Fork of the original mod with config options. 
 
-###### Version 1.0.1:
-Toggleable first person view using V key while spectating
+###### Version 1.0.3:
+Add config options for the following
+- Set your own keybind (V by default)
+- Whether to be in first or third person when entering spectating mode.
+- Hide model while spectating in first person
