@@ -7,6 +7,6 @@ Add config options for the following
 - Whether to be in first or third person when entering spectating mode.
 - Hide model while spectating in first person.
 
-Credits to 
+#### Credits to 
 [5bit](https://thunderstore.io/c/lethal-company/p/5Bit/FPSSpectate/)\
 [KlutzyBubbles](https://github.com/KlutzyBubbles/LC_FPSSpectate)
