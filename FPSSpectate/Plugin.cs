@@ -2,6 +2,7 @@
 using BepInEx.Logging;
 using BepInEx.Configuration;
 using HarmonyLib;
+using UnityEngine.InputSystem;
 using FPSSpectate.Patches;
 
 namespace FPSSpectate
@@ -9,15 +10,18 @@ namespace FPSSpectate
     [BepInPlugin(modGUID, modName, modVersion)]
     public class FPSSpectate : BaseUnityPlugin
     {
-        private const string modGUID = "5Bit.FPSSpectate";
-        private const string modName = "FPSSpectate";
-        private const string modVersion = "1.0.1";
+        public const string modGUID = "5Bit.FPSSpectate";
+        public const string modName = "FPSSpectate";
+        public const string modVersion = "1.0.2";
 
-        private readonly Harmony harmony = new Harmony(modGUID);
+        public readonly Harmony harmony = new Harmony(modGUID);
 
-        private static FPSSpectate Instance;
+        public static FPSSpectate Instance; 
+        public static ConfigEntry<Key> fpsKeyBind {  get; set; }
+        public static ConfigEntry<bool> defaultViewConfig { get; set; }
+        public static ConfigEntry<bool> hideModelInFPSMode { get; set; }
 
-        internal static ManualLogSource mls;
+        public static ManualLogSource mls;
 
         void Awake()
         {
@@ -25,15 +29,11 @@ namespace FPSSpectate
             {
                 Instance = this;
             }
-
+            fpsKeyBind = Config.Bind("Settings", "Keybind", Key.V, "Which key to press to switch between third and first person.");
+            defaultViewConfig = Config.Bind("Settings", "Default to first person", true, "Whether or not to default to first person when spectating");
+            hideModelInFPSMode = Config.Bind("Settings", "Hide Model", true, "Hide the model in first person while spectating.");
             mls = BepInEx.Logging.Logger.CreateLogSource(modGUID);
-
-            ConfigEntry<bool> defaultViewConfig = Config.Bind("Settings", "Default to first person", true, "Whether or not to default to first person when spectating");
-            FPSSpectatePatch.firstPerson = defaultViewConfig.Value;
-
             harmony.PatchAll();
         }
     }
-
-
 }
