@@ -8,5 +8,5 @@ Add config options for the following
 - Hide model while spectating in first person.
 
 Credits to 
-[5bit](https://thunderstore.io/c/lethal-company/p/5Bit/FPSSpectate/)
+[5bit](https://thunderstore.io/c/lethal-company/p/5Bit/FPSSpectate/)\
 [KlutzyBubbles](https://github.com/KlutzyBubbles/LC_FPSSpectate)
